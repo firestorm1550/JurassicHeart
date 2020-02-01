@@ -13,15 +13,15 @@ using UnityEngine.XR.ARSubsystems;
 [RequireComponent(typeof(ARRaycastManager))]
 public class PlaceBonesInWorld : MonoBehaviour {
 	[SerializeField]
-	[Tooltip("Instantiates this prefab on a plane at the touch location.")]
-	GameObject m_PlacedPrefab;
+	[Tooltip("Instantiates the origin on a plane at the touch location.")]
+	GameObject m_PlacedOriginPrefab;
 
 	/// <summary>
 	/// The prefab to instantiate on touch.
 	/// </summary>
 	public GameObject placedPrefab {
-		get { return m_PlacedPrefab; }
-		set { m_PlacedPrefab = value; }
+		get { return m_PlacedOriginPrefab; }
+		set { m_PlacedOriginPrefab = value; }
 	}
 
 	/// <summary>
@@ -62,7 +62,7 @@ public class PlaceBonesInWorld : MonoBehaviour {
 			var hitPose = s_Hits[0].pose;
 
 			if (spawnedObject == null) {
-				spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, hitPose.rotation);
+				spawnedObject = Instantiate(m_PlacedOriginPrefab, hitPose.position, hitPose.rotation);
 			} else {
 				spawnedObject.transform.position = hitPose.position;
 			}

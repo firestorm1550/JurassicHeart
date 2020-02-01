@@ -6,6 +6,27 @@
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="RobertLand" t="Include">
+          <e p="48 Particle Effect Pack" t="Include">
+            <e p="Script" t="Include">
+              <e p="csDestroyEffect.cs" t="Include" />
+              <e p="csMouseOrbit.cs" t="Include" />
+              <e p="csParticleEffectPackLightControl.cs" t="Include" />
+              <e p="csParticleMove.cs" t="Include" />
+              <e p="csShowAllEffect.cs" t="Include" />
+            </e>
+            <e p="ShurikenEffectEditor" t="Include">
+              <e p="csShurikenEffectChanger.cs" t="Include" />
+              <e p="csShurikenEffectEditor.cs" t="Include" />
+            </e>
+          </e>
+          <e p="FlyCam.cs" t="Include" />
+          <e p="PlaceShellPuzzleOnPlane.cs" t="Include" />
+          <e p="ShellLayer.cs" t="Include" />
+          <e p="ShellPuzzle.cs" t="Include" />
+          <e p="ShellPuzzleController.cs" t="Include" />
+          <e p="ShellTarget.cs" t="Include" />
+        </e>
         <e p="SA Base" t="Include">
           <e p="ARCollaborationData" t="Include">
             <e p="AnchorInfoManager.cs" t="Include" />
@@ -85,6 +106,24 @@
           </e>
           <e p="SimpleAR" t="Include">
             <e p="SessionReloader.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Scenes" t="Include">
+          <e p="SceneControl.cs" t="Include" />
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Dwan" t="Include">
+            <e p="DinoPart.cs" t="Include" />
+            <e p="PlayerInventory.cs" t="Include" />
+            <e p="SkeletonManager.cs" t="Include" />
+          </e>
+          <e p="Guimin" t="Include">
+            <e p="BonesBehaviours.cs" t="Include" />
+            <e p="DiggingController.cs" t="Include" />
+          </e>
+          <e p="welby" t="Include">
+            <e p="PlaceBonesInWorld.cs" t="Include" />
+            <e p="ToonOutline.shader" t="Include" />
           </e>
         </e>
       </e>

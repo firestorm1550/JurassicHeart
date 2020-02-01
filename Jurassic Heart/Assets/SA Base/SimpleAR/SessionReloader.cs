@@ -31,7 +31,9 @@ public class SessionReloader : MonoBehaviour
         if (sessionPrefab != null)
         {
             session = Instantiate(sessionPrefab).GetComponent<ARSession>();
-
+            if (ShellPuzzleController.Instance != null && ShellPuzzleController.Instance.puzzle != null)
+                Destroy(ShellPuzzleController.Instance.puzzle.gameObject);
+            
             // Hook the buttons back up
             resetButton.onClick.AddListener(session.Reset);
             pauseButton.onClick.AddListener(() => { session.enabled = false; });
