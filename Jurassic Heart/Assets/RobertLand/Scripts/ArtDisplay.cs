@@ -9,8 +9,17 @@ public class ArtDisplay : MonoBehaviour
     public Image image;
     public float rotationSpeed;
 
+    private bool rotating = true;
+
     public void Start()
     {
-        StartCoroutine(GenericCoroutines.DoWhile(() => transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime), () => true));
+        rotating = true;
+        StartCoroutine(GenericCoroutines.DoWhile(() => transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime), () => rotating));
     }
+
+    public void StopRotating()
+    {
+        rotating = false;
+    }
+    
 }

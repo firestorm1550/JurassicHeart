@@ -28,11 +28,29 @@ public class ShellPuzzle : MonoBehaviour
         if (shellLayersOrdered.IndexOf(layer) == 0)
         {
             Debug.Log("Show Prize!");
+            StartCoroutine(GrowImageAndStopRotating(2.5f));
+
         }
         else
         {
             Debug.Log("Popping a layer");
             shellLayersOrdered[shellLayersOrdered.IndexOf(layer)-1].gameObject.SetActive(true);
         }
+    }
+
+    IEnumerator GrowImageAndStopRotating(float duration)
+    {
+        float timeElapsed = 0;
+        float startScale = artDisplay.transform.localScale.x;
+
+        while (timeElapsed < duration)
+        {
+            timeElapsed += Time.deltaTime;
+            float scale = Mathf.Lerp(startScale, ShellPuzzleController.Instance.maxSize, timeElapsed / duration);
+            artDisplay.transform.localScale = new Vector3(scale,scale, scale);
+            yield return new WaitForEndOfFrame();
+        }
+
+        artDisplay.StopRotating();
     }
 }
