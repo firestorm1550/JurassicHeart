@@ -9,6 +9,7 @@ public class ShellPuzzle : MonoBehaviour
     public void PopLayer(ShellLayer layer)
     {
         layer.target.gameObject.SetActive(false);
+        layer.myEffect.gameObject.SetActive(false);
         float force = 200;
         Vector3 forceVector = new Vector3(200,600,200);
         layer.leftHalf.AddComponent<Rigidbody>().AddForce(layer.leftHalf.transform.forward.Multiply(-forceVector));
@@ -23,7 +24,7 @@ public class ShellPuzzle : MonoBehaviour
         else
         {
             Debug.Log("Popping a layer");
-            shellLayersOrdered[shellLayersOrdered.IndexOf(layer)-1].myEffect.gameObject.SetActive(true);
+            shellLayersOrdered[shellLayersOrdered.IndexOf(layer)-1].gameObject.SetActive(true);
         }
     }
 }

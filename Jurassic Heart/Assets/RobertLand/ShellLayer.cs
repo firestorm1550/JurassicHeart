@@ -19,8 +19,7 @@ public class ShellLayer : MonoBehaviour
             myEffect = Instantiate(effectsPrefabs[Random.Range(0, effectsPrefabs.Count)]);
         myEffect.transform.position = target.transform.position;
         myEffect.transform.rotation = target.transform.rotation;
-        myEffect.transform.parent = transform;
-        myEffect.SetActive(false);
+        myEffect.transform.parent = transform; ;
     }
 
 
