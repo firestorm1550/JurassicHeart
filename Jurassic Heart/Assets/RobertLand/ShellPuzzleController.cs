@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ShellPuzzleController : MonoBehaviour
 {
@@ -50,10 +51,17 @@ public class ShellPuzzleController : MonoBehaviour
             //fit to size
             Bounds bounds = new Bounds(puzzle.transform.position, new Vector3(sphereSize, sphereSize, sphereSize));
             FitToSpace(layer.transform, layer.gameObject.MakeBoundingBoxForObjectRenderers	(), bounds.center, bounds);
+            
+            //Rotate randomly
+            layer.transform.rotation = Random.rotation;
+            
+            //disable
+            layer.gameObject.SetActive(false);
+            
             //add to list
             puzzle.shellLayersOrdered.Add(layer);
         }
-        puzzle.shellLayersOrdered.Last().myEffect.SetActive(true);
+        puzzle.shellLayersOrdered.Last().gameObject.SetActive(true);
 
         return puzzle;
     }
