@@ -23,6 +23,7 @@ public class BonesBehaviours : MonoBehaviour
         {         
             Instantiate(bone, transform.position, transform.rotation);
             generated = true;
+            Destroy(gameObject);
         }
 
                 
