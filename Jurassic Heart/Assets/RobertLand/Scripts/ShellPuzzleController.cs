@@ -17,6 +17,12 @@ public class ShellPuzzleController : MonoBehaviour
 
     public List<ArtDisplay> story;
 
+    
+    public int layers = 12;
+    public float minSize = .1f;
+    public float maxSize = .75f;
+    
+    
     public ShellPuzzle puzzle { get; private set; }
 
     private void Awake()
@@ -41,10 +47,6 @@ public class ShellPuzzleController : MonoBehaviour
         if(puzzle != null)
             Destroy(puzzle.gameObject);
 
-        int layers = 12;
-        float minSize = .1f;
-        float maxSize = .75f;
-        
         puzzle = GenerateShellPuzzle(layers, minSize,maxSize);
         
         
@@ -53,7 +55,7 @@ public class ShellPuzzleController : MonoBehaviour
         puzzle.artDisplay.transform.parent = puzzle.transform;
         puzzle.artDisplay.transform.localPosition = Vector3.zero;
         puzzle.artDisplay.gameObject.SetActive(true);
-        puzzle.artDisplay.transform.localScale *= .75f * minSize;
+        puzzle.artDisplay.transform.localScale *= .5f * minSize;
     }
 
     public ShellPuzzle GenerateShellPuzzle(int layers, float minSize, float maxSize)
@@ -100,10 +102,5 @@ public class ShellPuzzleController : MonoBehaviour
             objectToFit.localScale *= minScale;    
         }
     }
-    
-    public void PlacePuzzle(Vector3 position)
-    {
-        
-    }
-    
+
 }
