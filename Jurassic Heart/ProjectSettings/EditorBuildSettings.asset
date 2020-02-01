@@ -95,10 +95,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SimpleAR.unity
     guid: 0e4ba0c8e7e41410ba0d4a94fcd9fc25
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scripts/Welby/boneFindingScene.unity
     guid: 5a1933345ab29cc4790535c3b0822bc7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ShellPuzzle.unity
     guid: fe81bb257c9644768943bc5789f68515
   m_configObjects:
