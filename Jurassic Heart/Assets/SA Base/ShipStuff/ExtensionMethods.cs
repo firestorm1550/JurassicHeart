@@ -57,6 +57,23 @@ public static class ExtensionMethods
         }
         return bounds;
     }
+    public static Bounds MakeBoundingBoxForObjectMeshRenderers(this GameObject rootObject, bool includeInactive = false, FilterClause filter = null)
+    {
+        Renderer[] renderers = rootObject.GetComponentsInChildren<MeshRenderer>(includeInactive);
+        Debug.Log("renderers.length: " + renderers.Length);
+        if (renderers.Length == 0)
+        {
+            return new Bounds(rootObject.transform.position, Vector3.zero);
+        }
+
+        Bounds bounds = new Bounds(renderers[0].bounds.center, renderers[0].bounds.size);
+        foreach (Renderer r in renderers)
+        {
+            if(filter == null || filter(r.gameObject))
+                bounds.Encapsulate(r.bounds);
+        }
+        return bounds;
+    }
     public static bool ContainsAnyPoint(this Bounds boundsToCheck, IEnumerable<Vector3> points)
     {
         foreach(Vector3 point in points)
