@@ -109,6 +109,15 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="Dwan" t="Include">
+            <e p="DinoPart.cs" t="Include" />
+            <e p="PlayerInventory.cs" t="Include" />
+            <e p="SkeletonManager.cs" t="Include" />
+          </e>
+          <e p="Guimin" t="Include">
+            <e p="BonesBehaviours.cs" t="Include" />
+            <e p="DiggingController.cs" t="Include" />
+          </e>
           <e p="welby" t="Include">
             <e p="PlaceBonesInWorld.cs" t="Include" />
             <e p="ToonOutline.shader" t="Include" />
