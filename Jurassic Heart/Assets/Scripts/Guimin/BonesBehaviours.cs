@@ -20,18 +20,7 @@ public class BonesBehaviours : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-<<<<<<< HEAD
-        if(count >= maxDiscoverCount && !generated)
-        {         
-            Instantiate(bone, transform.position, transform.rotation);
-            generated = true;
-            Destroy(gameObject);
-        }
 
-                
-       
-
-=======
         if(count >= maxDiscoverCount && !generated)
         {
             StartCoroutine(StartMiniGame());
@@ -39,8 +28,6 @@ public class BonesBehaviours : MonoBehaviour
             generated = true;
             Destroy(gameObject);
         }
-
->>>>>>> Guimin
     }
     public void Discover()
     {
