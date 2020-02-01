@@ -1,11 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ShellPuzzle : MonoBehaviour
 {
     public List<ShellLayer> shellLayersOrdered = new List<ShellLayer>();
 
+    public void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.P))
+            PopLayer(shellLayersOrdered.Last(l=>l.target.gameObject.activeInHierarchy));
+    }
+    
     public void PopLayer(ShellLayer layer)
     {
         layer.target.gameObject.SetActive(false);

@@ -20,6 +20,10 @@ public class ShellPuzzleController : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+        #if UNITY_EDITOR
+        RespawnPuzzle(cam.transform.position + cam.transform.forward * 4);
+        cam.GetComponent<CameraController>()?.Init(puzzle.gameObject);
+        #endif
     }
 
     public void Start()
@@ -34,7 +38,7 @@ public class ShellPuzzleController : MonoBehaviour
         Debug.Log("Respawning puzzle at " + location);
         if(puzzle != null)
             Destroy(puzzle.gameObject);
-        puzzle = GenerateShellPuzzle(20, .1f, 1f);
+        puzzle = GenerateShellPuzzle(12, .1f, .75f);
         puzzle.transform.position = location;
     }
 

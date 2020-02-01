@@ -20,6 +20,7 @@
               <e p="csShurikenEffectEditor.cs" t="Include" />
             </e>
           </e>
+          <e p="CameraController.cs" t="Include" />
           <e p="FlyCam.cs" t="Include" />
           <e p="PlaceShellPuzzleOnPlane.cs" t="Include" />
           <e p="ShellLayer.cs" t="Include" />
