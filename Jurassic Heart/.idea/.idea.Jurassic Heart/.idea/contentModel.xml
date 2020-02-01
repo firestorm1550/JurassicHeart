@@ -20,13 +20,15 @@
               <e p="csShurikenEffectEditor.cs" t="Include" />
             </e>
           </e>
-          <e p="CameraController.cs" t="Include" />
-          <e p="FlyCam.cs" t="Include" />
-          <e p="PlaceShellPuzzleOnPlane.cs" t="Include" />
-          <e p="ShellLayer.cs" t="Include" />
-          <e p="ShellPuzzle.cs" t="Include" />
-          <e p="ShellPuzzleController.cs" t="Include" />
-          <e p="ShellTarget.cs" t="Include" />
+          <e p="Scripts" t="Include">
+            <e p="CameraController.cs" t="Include" />
+            <e p="FlyCam.cs" t="Include" />
+            <e p="PlaceShellPuzzleOnPlane.cs" t="Include" />
+            <e p="ShellLayer.cs" t="Include" />
+            <e p="ShellPuzzle.cs" t="Include" />
+            <e p="ShellPuzzleController.cs" t="Include" />
+            <e p="ShellTarget.cs" t="Include" />
+          </e>
         </e>
         <e p="SA Base" t="Include">
           <e p="ARCollaborationData" t="Include">
@@ -114,9 +116,14 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="Dwan" t="Include">
-            <e p="DinoPart.cs" t="Include" />
-            <e p="PlayerInventory.cs" t="Include" />
-            <e p="SkeletonManager.cs" t="Include" />
+            <e p="BuildSkeleton" t="Include">
+              <e p="DinoPart.cs" t="Include" />
+              <e p="PlayerInventory.cs" t="Include" />
+              <e p="SkeletonManager.cs" t="Include" />
+            </e>
+            <e p="Timer" t="Include">
+              <e p="Timer.cs" t="Include" />
+            </e>
           </e>
           <e p="Guimin" t="Include">
             <e p="BonesBehaviours.cs" t="Include" />
