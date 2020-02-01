@@ -21,6 +21,7 @@
             </e>
           </e>
           <e p="Scripts" t="Include">
+            <e p="ArtDisplay.cs" t="Include" />
             <e p="CameraController.cs" t="Include" />
             <e p="FlyCam.cs" t="Include" />
             <e p="PlaceShellPuzzleOnPlane.cs" t="Include" />
@@ -130,6 +131,7 @@
             <e p="DiggingController.cs" t="Include" />
           </e>
           <e p="welby" t="Include">
+            <e p="DirtRemove.cs" t="Include" />
             <e p="PlaceBonesInWorld.cs" t="Include" />
             <e p="ToonOutline.shader" t="Include" />
           </e>

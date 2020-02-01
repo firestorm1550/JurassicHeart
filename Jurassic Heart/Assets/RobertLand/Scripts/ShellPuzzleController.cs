@@ -15,6 +15,8 @@ public class ShellPuzzleController : MonoBehaviour
     public Camera cam;
     public PlaceShellPuzzleOnPlane placeOnPlane;
 
+    public List<ArtDisplay> story;
+
     public ShellPuzzle puzzle { get; private set; }
 
     private void Awake()
@@ -33,13 +35,25 @@ public class ShellPuzzleController : MonoBehaviour
         //.transform.position = cam.transform.position + cam.transform.forward * 5 + cam.transform.up*-1;
     }
 
-    public void RespawnPuzzle(Vector3 location)
+    public void RespawnPuzzle(Vector3 location, int storyIndex = 0)
     {
         Debug.Log("Respawning puzzle at " + location);
         if(puzzle != null)
             Destroy(puzzle.gameObject);
-        puzzle = GenerateShellPuzzle(12, .1f, .75f);
+
+        int layers = 12;
+        float minSize = .1f;
+        float maxSize = .75f;
+        
+        puzzle = GenerateShellPuzzle(layers, minSize,maxSize);
+        
+        
         puzzle.transform.position = location;
+        puzzle.artDisplay = story[storyIndex];
+        puzzle.artDisplay.transform.parent = puzzle.transform;
+        puzzle.artDisplay.transform.localPosition = Vector3.zero;
+        puzzle.artDisplay.gameObject.SetActive(true);
+        puzzle.artDisplay.transform.localScale *= .75f * minSize;
     }
 
     public ShellPuzzle GenerateShellPuzzle(int layers, float minSize, float maxSize)

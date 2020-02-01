@@ -33,6 +33,17 @@ public static class GenericCoroutines
 
         action();
     }
+    public static IEnumerator DoWhile(Action action, Condition condition)
+    {
+        int framesWaited = 0;
+        while (condition())
+        {
+            yield return new WaitForEndOfFrame();
+            action();
+        }
+    }
+
+    
 
     public static IEnumerator MoveAwayFrom(Transform objectToMove, Vector3 myCenterPoint, Vector3 awayFrom,  float distance, float seconds, 
         Action doAfter = null)

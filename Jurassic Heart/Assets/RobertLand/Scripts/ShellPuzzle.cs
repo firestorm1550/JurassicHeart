@@ -6,6 +6,7 @@ using UnityEngine;
 public class ShellPuzzle : MonoBehaviour
 {
     public List<ShellLayer> shellLayersOrdered = new List<ShellLayer>();
+    public ArtDisplay artDisplay;
 
     public void Update()
     {
