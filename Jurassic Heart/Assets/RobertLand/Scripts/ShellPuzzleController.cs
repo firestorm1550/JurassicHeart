@@ -55,7 +55,7 @@ public class ShellPuzzleController : MonoBehaviour
         puzzle.artDisplay.transform.parent = puzzle.transform;
         puzzle.artDisplay.transform.localPosition = Vector3.zero;
         puzzle.artDisplay.gameObject.SetActive(true);
-        puzzle.artDisplay.transform.localScale *= .5f * minSize;
+        puzzle.artDisplay.transform.localScale = new Vector3(.5f * minSize,.5f * minSize, .5f * minSize);
     }
 
     public ShellPuzzle GenerateShellPuzzle(int layers, float minSize, float maxSize)

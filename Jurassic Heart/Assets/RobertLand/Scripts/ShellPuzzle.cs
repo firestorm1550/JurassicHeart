@@ -18,10 +18,10 @@ public class ShellPuzzle : MonoBehaviour
     {
         layer.target.gameObject.SetActive(false);
         layer.myEffect.gameObject.SetActive(false);
-        float force = 200;
-        Vector3 forceVector = new Vector3(200,600,200);
-        layer.leftHalf.AddComponent<Rigidbody>().AddForce(layer.leftHalf.transform.forward.Multiply(-forceVector));
-        layer.rightHalf.AddComponent<Rigidbody>().AddForce(layer.rightHalf.transform.forward.Multiply(-forceVector));
+        float force = 1;
+
+        layer.leftHalf.AddComponent<Rigidbody>().AddForce(force*Vector3.up, ForceMode.Impulse);
+        layer.rightHalf.AddComponent<Rigidbody>().AddForce(force*Vector3.up,ForceMode.Impulse);
 
         StartCoroutine(GenericCoroutines.DoAfterSeconds(() => layer.gameObject.SetActive(false), 2));
         
