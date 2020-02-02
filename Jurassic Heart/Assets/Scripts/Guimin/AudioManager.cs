@@ -58,6 +58,11 @@ public class AudioManager : MonoBehaviour
         Particle.clip = particle;
         Particle.Play();
     }
+    public void StopParticleSound()
+    {
+        Particle.clip = particle;
+        Particle.Stop();
+    }
     public void PlaySuccessSound()
     {
         Success.clip = success;

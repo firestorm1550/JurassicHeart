@@ -963,12 +963,15 @@ MonoBehaviour:
   Success: {fileID: 1581193746}
   Failure: {fileID: 193938772}
   BoneAssemble: {fileID: 2106586442}
-  digging: []
-  shellPuzzle: {fileID: 0}
-  particle: {fileID: 0}
-  success: {fileID: 0}
-  failure: {fileID: 0}
-  boneAssemble: {fileID: 0}
+  digging:
+  - {fileID: 8300000, guid: 0483b0fcb1df54ac09b3a56385868405, type: 3}
+  - {fileID: 8300000, guid: 4d99302af726048e8b636113ad89def6, type: 3}
+  - {fileID: 8300000, guid: 39eacd16bed1746dfb98871f67fbbb8c, type: 3}
+  shellPuzzle: {fileID: 8300000, guid: 0413f8f7817674e7da1f6a6b39732ef3, type: 3}
+  particle: {fileID: 8300000, guid: bfda7f4806d2443f2a68d9a09333c953, type: 3}
+  success: {fileID: 8300000, guid: a4df72bc9144c42fea082f413e6c6161, type: 3}
+  failure: {fileID: 8300000, guid: ce26f3647d2254e458e29ee03dd6958a, type: 3}
+  boneAssemble: {fileID: 8300000, guid: 9beac11a0d22b4ad8ad7bdcaf89418c1, type: 3}
 --- !u!4 &630943652
 Transform:
   m_ObjectHideFlags: 0
@@ -2386,7 +2389,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
