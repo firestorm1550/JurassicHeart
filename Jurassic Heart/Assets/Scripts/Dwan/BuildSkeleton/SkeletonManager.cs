@@ -108,8 +108,8 @@ public class SkeletonManager : MonoBehaviour
         ShellPuzzleController.Instance.RespawnPuzzle(pos, PlayerInventory.Instance.PartCurrentlyHeld);
 
         //Disable Vibration
-        FindObjectOfType<VibrateDistance>().gameObject.SetActive(false);
-        
+        FindObjectOfType<VibrateDistance>().enabled = false;
+
         //Start timer   
         //        
         //
