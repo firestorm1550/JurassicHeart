@@ -29,6 +29,7 @@ public class DiggingController : MonoBehaviour
                     {
                         Debug.Log("Find a bone");
                         hit.transform.GetComponent<BonesBehaviours>().Discover();
+                        AudioManager.instance.PlayDiggingSound();
                     }
                   
                 }
