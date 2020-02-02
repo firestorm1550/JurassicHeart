@@ -70,7 +70,7 @@ public class SkeletonManager : MonoBehaviour
         }
 
 
-        //show puzzle:
+        //if succeed
         ShellPuzzleController.Instance.OnSuccess = ()=>
         {
 
@@ -83,8 +83,11 @@ public class SkeletonManager : MonoBehaviour
 
             gameObject.SetActive(true);
 
-            //if succeed
+            
             PlayerInventory.Instance.PartCurrentlyHeld = PlayerInventory.PartHeldEnum.Empty;
+            
+            //todo Place new bone here
+            
         };
         StartCoroutine(GenericCoroutines.DoAfterSeconds(ShowPuzzle, 3));
     }
@@ -103,6 +106,9 @@ public class SkeletonManager : MonoBehaviour
         //    Activate and initialize puzzle (pass in PartHeldEnum)
         ShellPuzzleController.Instance.RespawnPuzzle(pos, PlayerInventory.Instance.PartCurrentlyHeld);
 
+        //Disable Vibration
+        FindObjectOfType<VibrateDistance>().gameObject.SetActive(false);
+        
         //Start timer   
         //        
         //
@@ -125,7 +131,7 @@ public class SkeletonManager : MonoBehaviour
         dinoParts[index].OnPickUp(); 
     }
 
-    public void PlaceBone()
+    public void PlaceBoneInSkeleton()
     {
         PlayerInventory.Instance.PlaceBone();
     }

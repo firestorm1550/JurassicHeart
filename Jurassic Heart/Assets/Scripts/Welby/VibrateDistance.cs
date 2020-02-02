@@ -13,17 +13,18 @@ public class VibrateDistance : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		bone = GameObject.FindGameObjectWithTag("Bone").transform;
+		bone = GameObject.FindGameObjectWithTag("Bone")?.transform;	
 	}
 
     // Update is called once per frame
     void Update()
     {
-		if (!bone) {
+		if (!bone && GameController.Instance.GameBegun) {
 			bone = GameObject.FindGameObjectWithTag("Bone").transform;
-			if (!bone) {
-				return;
-			}
+		}
+		else
+		{
+			return;
 		}
 
 		distance = (bone.position - transform.position).magnitude;

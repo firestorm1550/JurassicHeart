@@ -520,6 +520,7 @@ GameObject:
   - component: {fileID: 4418835997191663034}
   - component: {fileID: 7671478740173078395}
   - component: {fileID: 8240490117496997206}
+  - component: {fileID: 565280024844649151}
   m_Layer: 0
   m_Name: Stand
   m_TagString: Untagged
@@ -601,6 +602,18 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &565280024844649151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8959536189787277967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9860d0e11a9b04cb09fec2a3e97f5fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1291308752684669108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -612,6 +625,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ArtDisplay (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2256003247378528096, guid: 67c5948baa8524cbaa7a25d5013b9afa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2256003247378528101, guid: 67c5948baa8524cbaa7a25d5013b9afa,
         type: 3}
@@ -750,6 +768,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArtDisplay (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2256003247378528096, guid: 67c5948baa8524cbaa7a25d5013b9afa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2256003247378528101, guid: 67c5948baa8524cbaa7a25d5013b9afa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -887,6 +910,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArtDisplay
       objectReference: {fileID: 0}
+    - target: {fileID: 2256003247378528096, guid: 67c5948baa8524cbaa7a25d5013b9afa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2256003247378528101, guid: 67c5948baa8524cbaa7a25d5013b9afa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1023,6 +1051,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ArtDisplay (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2256003247378528096, guid: 67c5948baa8524cbaa7a25d5013b9afa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2256003247378528101, guid: 67c5948baa8524cbaa7a25d5013b9afa,
         type: 3}
