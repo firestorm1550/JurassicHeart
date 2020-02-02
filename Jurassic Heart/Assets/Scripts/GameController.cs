@@ -55,6 +55,10 @@ public class GameController : MonoBehaviour
         ARPointCloudManager arpcm = FindObjectOfType<ARPointCloudManager>();
         arpcm.SetTrackablesActive(false);
         arpcm.enabled = false;
+        PlaceOnPlane placeOnPlane = FindObjectOfType<PlaceOnPlane>();
+        placeOnPlane.enabled = false;
+        placeOnPlane.placedPrefab.SetActive(false);
+
 
     }
 }
