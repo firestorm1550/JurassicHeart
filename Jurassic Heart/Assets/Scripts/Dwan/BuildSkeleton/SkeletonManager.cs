@@ -59,9 +59,7 @@ public class SkeletonManager : MonoBehaviour
                 break;
         }
 
-        PlayerInventory.Instance.PartCurrentlyHeld = PlayerInventory.PartHeldEnum.Empty;
-        
-        
+
         //show puzzle:
         
         //Create puff of smoke
@@ -74,6 +72,8 @@ public class SkeletonManager : MonoBehaviour
         //Start timer   
         //        
         //
+        
+        PlayerInventory.Instance.PartCurrentlyHeld = PlayerInventory.PartHeldEnum.Empty;
     }
     private void Update()
     {

@@ -44,7 +44,7 @@ public class ShellPuzzleController : MonoBehaviour
 
     public void RespawnPuzzle(Vector3 location, PlayerInventory.PartHeldEnum partID)
     {
-        Debug.Log("Respawning puzzle at " + location + ", with story id " + (partID-1));
+        Debug.Log("Respawning puzzle at " + location + ", with story id " + ((int)partID -1));
         
         if(puzzle != null)
             Destroy(puzzle.gameObject);
