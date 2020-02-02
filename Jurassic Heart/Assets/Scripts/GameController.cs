@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     public SkeletonManager skeletonManager;
     public Text currentPartDisplay;
     public GameObject welbyOriginPrefab;
-    
+    private GameObject welbyOriginInstance;
     
     // Start is called before the first frame update
     void Start()
@@ -47,7 +47,9 @@ public class GameController : MonoBehaviour
             skeletonManager.transform.position = origin;
         }, 2));
 
-        Instantiate(welbyOriginPrefab).transform.position = origin;
+        welbyOriginInstance = Instantiate(welbyOriginPrefab);
+        welbyOriginInstance.transform.position = origin;
+
         FindObjectOfType<VibrateDistance>().Initialize();
         
         ARPlaneManager arpm = FindObjectOfType<ARPlaneManager>();
@@ -56,6 +58,7 @@ public class GameController : MonoBehaviour
         ARPointCloudManager arpcm = FindObjectOfType<ARPointCloudManager>();
         arpcm.SetTrackablesActive(false);
         arpcm.enabled = false;
+        
 
     }
 }
