@@ -69,6 +69,14 @@ public class PlaceBonesInWorld : MonoBehaviour {
 				if (spawnedObject == null) {
 					spawnedObject = Instantiate(m_PlacedOriginPrefab, hitPose.position, hitPose.rotation);
 					isOriginSet = true;
+
+					ARPlaneManager arpm = FindObjectOfType<ARPlaneManager>();
+					arpm.SetTrackablesActive(false);
+					arpm.enabled = false;
+					ARPointCloudManager arpcm = FindObjectOfType<ARPointCloudManager>();
+					arpcm.SetTrackablesActive(false);
+					arpcm.enabled = false;
+
 				} else {
 					spawnedObject.transform.position = hitPose.position;
 				}
