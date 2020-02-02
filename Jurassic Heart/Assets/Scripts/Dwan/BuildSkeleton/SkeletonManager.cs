@@ -76,12 +76,15 @@ public class SkeletonManager : MonoBehaviour
 
             ArtDisplay artDisplay = ShellPuzzleController.Instance.puzzle.artDisplay;
             artDisplay.gameObject.SetActive(false);
-            ArtDisplay displayToShow = artDisplays[(int) PlayerInventory.Instance.PartCurrentlyHeld - 1];
-            displayToShow.image = artDisplay.image;
+            ArtDisplay displayToShow = artDisplays[(int) PlayerInventory.Instance.PartCurrentlyHeld];
+            displayToShow.image.sprite = artDisplay.image.sprite;
             displayToShow.gameObject.SetActive(true);
+            displayToShow.StopRotating();
 
             gameObject.SetActive(true);
 
+            //if succeed
+            PlayerInventory.Instance.PartCurrentlyHeld = PlayerInventory.PartHeldEnum.Empty;
         };
         StartCoroutine(GenericCoroutines.DoAfterSeconds(ShowPuzzle, 3));
     }
@@ -92,19 +95,18 @@ public class SkeletonManager : MonoBehaviour
         //Create puff of smoke
         gameObject.SetActive(false);
         //remove puff of smoke
-        
+#if UNITY_EDITOR
+        Vector3 pos = transform.position;
+#else
+        Vector3 pos = transform.position + Vector3.up;
+#endif
         //    Activate and initialize puzzle (pass in PartHeldEnum)
-        ShellPuzzleController.Instance.RespawnPuzzle(transform.position+Vector3.up, PlayerInventory.Instance.PartCurrentlyHeld);
+        ShellPuzzleController.Instance.RespawnPuzzle(pos, PlayerInventory.Instance.PartCurrentlyHeld);
 
         //Start timer   
         //        
         //
 
-        
-        
-        //if succeed
-        PlayerInventory.Instance.PartCurrentlyHeld = PlayerInventory.PartHeldEnum.Empty;
-        
     }
     private void Update()
     {

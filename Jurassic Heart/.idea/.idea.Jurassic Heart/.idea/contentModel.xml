@@ -132,6 +132,7 @@
           </e>
           <e p="GameController.cs" t="Include" />
           <e p="Guimin" t="Include">
+            <e p="AudioManager.cs" t="Include" />
             <e p="BonesBehaviours.cs" t="Include" />
             <e p="DiggingController.cs" t="Include" />
           </e>
