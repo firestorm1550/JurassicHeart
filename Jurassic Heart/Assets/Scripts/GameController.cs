@@ -62,7 +62,7 @@ public class GameController : MonoBehaviour
             skeletonScatter.ScatterSkeleton();
             skeletonManager.gameObject.SetActive(true);
             skeletonManager.transform.position = origin;
-        }, 2));
+        }, 5));
 
         welbyOriginInstance = Instantiate(welbyOriginPrefab);
         welbyOriginInstance.transform.position = origin;

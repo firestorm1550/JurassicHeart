@@ -69,8 +69,12 @@ public class SkeletonManager : MonoBehaviour
                 break;
         }
         PlayerInventory.Instance.BoneUI.SetActive(false);
-        SolvePuzzleUI.SetActive(true);
-		ShellPuzzleController.Instance.OnSuccess = ()=>
+
+        if (PlayerInventory.Instance.PartCurrentlyHeld != PlayerInventory.PartHeldEnum.Empty)
+        {
+            SolvePuzzleUI.SetActive(true);
+        }
+        ShellPuzzleController.Instance.OnSuccess = ()=>
         {
 
             ArtDisplay artDisplay = ShellPuzzleController.Instance.puzzle.artDisplay;
@@ -90,7 +94,11 @@ public class SkeletonManager : MonoBehaviour
             //todo Place new bone here
 
         };
-        StartCoroutine(GenericCoroutines.DoAfterSeconds(ShowPuzzle, 3));
+        if(PlayerInventory.Instance.PartCurrentlyHeld != PlayerInventory.PartHeldEnum.Empty)
+        {
+            StartCoroutine(GenericCoroutines.DoAfterSeconds(ShowPuzzle, 3));
+
+        }
     }
 
     public void ShowPuzzle()
