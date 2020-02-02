@@ -16,8 +16,8 @@ public class GameController : MonoBehaviour
     public SkeletonManager skeletonManager;
     public Text currentPartDisplay;
     public VibrateDistance vibrator;
-    public GameObject welbyOriginPrefab;
-    private GameObject welbyOriginInstance;
+    public BoneLocationControl welbyOriginPrefab;
+    public BoneLocationControl welbyOriginInstance;
 
     public void Awake()
     {
@@ -65,8 +65,15 @@ public class GameController : MonoBehaviour
 
         welbyOriginInstance = Instantiate(welbyOriginPrefab);
         welbyOriginInstance.transform.position = origin;
-
+        
         vibrator.Initialize();
+        foreach (HoleWithBone holeWithBone in welbyOriginInstance.holes)
+        {
+            holeWithBone.gameObject.SetActive(false);
+        }
+        welbyOriginInstance.holes[0].gameObject.SetActive(true);
+        
+        
         
         ARPlaneManager arpm = FindObjectOfType<ARPlaneManager>();
         arpm.SetTrackablesActive(false); 

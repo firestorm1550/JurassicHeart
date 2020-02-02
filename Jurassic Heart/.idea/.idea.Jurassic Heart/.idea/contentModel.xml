@@ -136,8 +136,10 @@
             <e p="AudioManager.cs" t="Include" />
             <e p="BonesBehaviours.cs" t="Include" />
             <e p="DiggingController.cs" t="Include" />
+            <e p="LeaderBoard.cs" t="Include" />
           </e>
           <e p="HoleWithBone.cs" t="Include" />
+          <e p="Platform.cs" t="Include" />
           <e p="welby" t="Include">
             <e p="CubeSwipeAway.cs" t="Include" />
             <e p="DirtRemove.cs" t="Include" />

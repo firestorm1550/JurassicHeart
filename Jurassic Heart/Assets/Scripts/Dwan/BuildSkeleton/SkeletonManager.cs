@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using SkeletonPlacement;
 
@@ -67,8 +68,7 @@ public class SkeletonManager : MonoBehaviour
                 break;
         }
 
-
-        //show puzzle:
+        //configure success result
         ShellPuzzleController.Instance.OnSuccess = ()=>
         {
 
@@ -80,9 +80,9 @@ public class SkeletonManager : MonoBehaviour
             displayToShow.StopRotating();
 
             gameObject.SetActive(true);
-            GameController.Instance.welbyOriginPrefab.SetActive(true);
+            GameController.Instance.welbyOriginPrefab.gameObject.SetActive(true);
             GameController.Instance.vibrator.enabled = true;
-            //if succeed
+            GameController.Instance.welbyOriginInstance.holes.First(h=>!h.gameObject.activeSelf).gameObject.SetActive(true);
             PlayerInventory.Instance.PartCurrentlyHeld = PlayerInventory.PartHeldEnum.Empty;
         };
         StartCoroutine(GenericCoroutines.DoAfterSeconds(ShowPuzzle, 3));
@@ -93,7 +93,7 @@ public class SkeletonManager : MonoBehaviour
         
         //Create puff of smoke
         gameObject.SetActive(false);
-        GameController.Instance.welbyOriginPrefab.SetActive(false);
+        GameController.Instance.welbyOriginPrefab.gameObject.SetActive(false);
         GameController.Instance.vibrator.enabled = false;
         //remove puff of smoke
 #if UNITY_EDITOR

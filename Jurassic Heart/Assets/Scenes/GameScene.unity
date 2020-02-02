@@ -1201,8 +1201,9 @@ MonoBehaviour:
   skeletonManager: {fileID: 1105566897}
   currentPartDisplay: {fileID: 401809372}
   vibrator: {fileID: 282840818}
-  welbyOriginPrefab: {fileID: 7258493784384649071, guid: 6960c8985b363724eb9216b478fce458,
+  welbyOriginPrefab: {fileID: 1024404008346639044, guid: 6960c8985b363724eb9216b478fce458,
     type: 3}
+  welbyOriginInstance: {fileID: 0}
 --- !u!4 &767948417
 Transform:
   m_ObjectHideFlags: 0
@@ -3465,8 +3466,8 @@ MonoBehaviour:
   - {fileID: 1933968272}
   - {fileID: 152721502}
   layers: 12
-  minSize: 0.1
-  maxSize: 0.75
+  minSize: 0.05
+  maxSize: 0.5
 --- !u!4 &1955952597
 Transform:
   m_ObjectHideFlags: 0
