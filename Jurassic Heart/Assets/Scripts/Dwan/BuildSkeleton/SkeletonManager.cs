@@ -6,7 +6,9 @@ using SkeletonPlacement;
 public class SkeletonManager : MonoBehaviour
 {
     [SerializeField]
-    private List<GameObject> dinoParts = new List<GameObject>();
+    private List<DinoPart> dinoParts = new List<DinoPart>();
+    
+    
     public static SkeletonManager Instance;
 
     private void OnEnable()
@@ -18,17 +20,13 @@ public class SkeletonManager : MonoBehaviour
         Instance = this;
     }
 
-    private void Start()
+    private void Awake()
     {
         var i = new int();
-        foreach (Transform partTransform in transform.GetComponentsInChildren<Transform>())
+        foreach (DinoPart part in GetComponentsInChildren<DinoPart>())
         {
-            if (partTransform != this.transform)
-            {
-                dinoParts.Add(partTransform.gameObject);
-                dinoParts[i].SetActive(false);
-                i++;
-            }
+            dinoParts.Add(part);
+            part.gameObject.SetActive(false);
         }
     }
 
@@ -37,19 +35,19 @@ public class SkeletonManager : MonoBehaviour
         switch (PlayerInventory.Instance.PartCurrentlyHeld)
         {
             case PlayerInventory.PartHeldEnum.Part1:
-                dinoParts[0].SetActive(enabled);
+                dinoParts[0].gameObject.SetActive(enabled);
                 break;
 
             case PlayerInventory.PartHeldEnum.Part2:
-                dinoParts[1].SetActive(enabled);
+                dinoParts[1].gameObject.SetActive(enabled);
                 break;
 
             case PlayerInventory.PartHeldEnum.Part3:
-                dinoParts[2].SetActive(enabled);
+                dinoParts[2].gameObject.SetActive(enabled);
                 break;
 
             case PlayerInventory.PartHeldEnum.Part4:
-                dinoParts[3].SetActive(enabled);
+                dinoParts[3].gameObject.SetActive(enabled);
                 break;
 
             case PlayerInventory.PartHeldEnum.Empty:
@@ -60,6 +58,22 @@ public class SkeletonManager : MonoBehaviour
                 print("Invalid");
                 break;
         }
+
+        PlayerInventory.Instance.PartCurrentlyHeld = PlayerInventory.PartHeldEnum.Empty;
+        
+        
+        //show puzzle:
+        
+        //Create puff of smoke
+        gameObject.SetActive(false);
+        //remove puff of smoke
+        
+        //    Activate and initialize puzzle (pass in PartHeldEnum)
+        ShellPuzzleController.Instance.RespawnPuzzle(transform.position, PlayerInventory.Instance.PartCurrentlyHeld);
+
+        //Start timer   
+        //        
+        //
     }
     private void Update()
     {
@@ -72,5 +86,14 @@ public class SkeletonManager : MonoBehaviour
         {
             PlayerInventory.Instance.PlaceBone();
         }
+    }
+    public void PickupPart(int index)
+    {
+        dinoParts[index].OnPickUp(); 
+    }
+
+    public void PlaceBone()
+    {
+        PlayerInventory.Instance.PlaceBone();
     }
 }

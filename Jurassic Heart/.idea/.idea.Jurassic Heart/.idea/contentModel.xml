@@ -120,25 +120,30 @@
             <e p="BuildSkeleton" t="Include">
               <e p="DinoPart.cs" t="Include" />
               <e p="PlayerInventory.cs" t="Include" />
-              <e p="ScatterFade.cs" t="Include" />
               <e p="SkeletonManager.cs" t="Include" />
+            </e>
+            <e p="ScatterSkeleton" t="Include">
+              <e p="ScatterFade.cs" t="Include" />
               <e p="SkeletonScatter.cs" t="Include" />
             </e>
             <e p="Timer" t="Include">
               <e p="Timer.cs" t="Include" />
             </e>
           </e>
+          <e p="GameController.cs" t="Include" />
           <e p="Guimin" t="Include">
             <e p="BonesBehaviours.cs" t="Include" />
             <e p="DiggingController.cs" t="Include" />
           </e>
           <e p="welby" t="Include">
             <e p="DirtRemove.cs" t="Include" />
+            <e p="PickUpBone.cs" t="Include" />
             <e p="PlaceBonesInWorld.cs" t="Include" />
             <e p="ToonOutline.shader" t="Include" />
           </e>
         </e>
         <e p="StoryAsset" t="Include">
+          <e p="ShowGallery.cs" t="Include" />
           <e p="StoryManager.cs" t="Include" />
         </e>
       </e>

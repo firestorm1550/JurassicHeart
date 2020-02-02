@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/EntryScene.unity
     guid: beb3a6fc91d23462e9b9aa9f141a6119
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scripts/Welby/boneFindingScene.unity
     guid: 5a1933345ab29cc4790535c3b0822bc7
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/ShellPuzzle.unity
     guid: fe81bb257c9644768943bc5789f68515
   - enabled: 1
