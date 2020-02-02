@@ -27,7 +27,6 @@ public class GameController : MonoBehaviour
             throw new Exception();
         _instance = this;
     }
-    private GameObject welbyOriginInstance;
 
     // Start is called before the first frame update
     void Start()
