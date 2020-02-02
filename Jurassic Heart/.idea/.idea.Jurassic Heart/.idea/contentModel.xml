@@ -116,6 +116,7 @@
           <e p="SceneControl.cs" t="Include" />
         </e>
         <e p="Scripts" t="Include">
+          <e p="BoneLocationControl.cs" t="Include" />
           <e p="Dwan" t="Include">
             <e p="BuildSkeleton" t="Include">
               <e p="DinoPart.cs" t="Include" />
@@ -136,6 +137,7 @@
             <e p="BonesBehaviours.cs" t="Include" />
             <e p="DiggingController.cs" t="Include" />
           </e>
+          <e p="HoleWithBone.cs" t="Include" />
           <e p="welby" t="Include">
             <e p="CubeSwipeAway.cs" t="Include" />
             <e p="DirtRemove.cs" t="Include" />
@@ -151,11 +153,6 @@
         <e p="StoryAsset" t="Include">
           <e p="ShowGallery.cs" t="Include" />
           <e p="StoryManager.cs" t="Include" />
-        </e>
-        <e p="StreamingAssets" t="Include">
-          <e p="HiddenARCore" t="Include">
-            <e p="9270fbb3-dac2-4b7a-ad1e-35b555085b9d.imgdb-imglist.txt" t="Include" />
-          </e>
         </e>
       </e>
       <e p="Jurassic Heart.sln" t="IncludeFlat" />

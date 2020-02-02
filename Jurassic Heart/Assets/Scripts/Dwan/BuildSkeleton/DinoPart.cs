@@ -18,6 +18,7 @@ namespace SkeletonPlacement
         public void OnPickUp()
         {
             PlayerInventory.Instance.QueryPart(this);
+            GetComponentInParent<HoleWithBone>().HideBone();
         }
     }
 

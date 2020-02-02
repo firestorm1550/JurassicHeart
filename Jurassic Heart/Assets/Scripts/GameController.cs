@@ -9,20 +9,35 @@ public class GameController : MonoBehaviour
 {
     public static GameController Instance => _instance;
     private static GameController _instance; 
+    public static GameController Instance =>_instance;
+    private static GameController _instance;
+    
     
     
     public SkeletonScatter skeletonScatter;
     public SkeletonManager skeletonManager;
     public Text currentPartDisplay;
+    public VibrateDistance vibrator;
     public GameObject welbyOriginPrefab;
     public bool GameBegun { get; private set; }
 
 
     private void Awake()
     {
-        if(_instance!= null)
+        if (_instance != null)
             throw new Exception();
         _instance = this;
+    }
+    private GameObject welbyOriginInstance;
+
+    public void Awake()
+    {
+        if(_instance != null)
+            throw new Exception();
+        else
+        {
+            _instance = this;
+        }
     }
 
     // Start is called before the first frame update
@@ -61,8 +76,10 @@ public class GameController : MonoBehaviour
             skeletonManager.transform.position = origin;
         }, 2));
 
-        Instantiate(welbyOriginPrefab).transform.position = origin;
-        
+        welbyOriginInstance = Instantiate(welbyOriginPrefab);
+        welbyOriginInstance.transform.position = origin;
+
+        vibrator.Initialize();
         
         ARPlaneManager arpm = FindObjectOfType<ARPlaneManager>();
         arpm.SetTrackablesActive(false); 

@@ -1,41 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class VibrateDistance : MonoBehaviour
 {
 
-	float distance = 5f;
+	float minDistance = 5f;
 	float timeDelta = 0f;
 	float timeDelay = 1f;
-	public Transform bone;
+	public List<Transform> bones = null;
 
-    // Start is called before the first frame update
-    void Start()
+	public void Initialize()
     {
-		bone = GameObject.FindGameObjectWithTag("Bone").transform;
-	}
+	    bones = GameObject.FindGameObjectsWithTag("Bone").Select(b => b.transform).ToList();
+    }
 
     // Update is called once per frame
     void Update()
     {
-		if (!bone) {
-			bone = GameObject.FindGameObjectWithTag("Bone").transform;
-			if (!bone) {
-				return;
-			}
-		}
+	    if (bones != null)
+	    {
+		    minDistance = 6f;
+		    foreach (Transform bone in bones)
+		    {
+			    if(!bone.GetComponentInParent<HoleWithBone>().empty)
+					minDistance = Mathf.Min(minDistance, (bone.position - transform.position).magnitude);
+		    }
 
-		distance = (bone.position - transform.position).magnitude;
+		    if (minDistance < 2f)
+		    {
+			    timeDelay = minDistance;
 
-		if(distance < 2f) {
-			timeDelay = distance;
-
-			timeDelta += Time.deltaTime;
-			if(timeDelta > timeDelay) {
-				Handheld.Vibrate();
-				timeDelta = 0f;
-			}
-		}
+			    timeDelta += Time.deltaTime;
+			    if (timeDelta > timeDelay)
+			    {
+				    Handheld.Vibrate();
+				    timeDelta = 0f;
+			    }
+		    }
+	    }
     }
 }
