@@ -13,11 +13,15 @@ public class SkeletonManager : MonoBehaviour
 
     private void OnEnable()
     {
-        if (Instance != null)
+        if (Instance != this)
         {
-            Destroy(Instance);
+            if (Instance != null)
+            {
+                Destroy(Instance);
+            }
+
+            Instance = this;
         }
-        Instance = this;
     }
 
     private void Awake()
@@ -32,35 +36,41 @@ public class SkeletonManager : MonoBehaviour
 
     public void DisplayPart()
     {
+        Debug.Log("Placing bone "+ PlayerInventory.Instance.PartCurrentlyHeld);
         switch (PlayerInventory.Instance.PartCurrentlyHeld)
         {
             case PlayerInventory.PartHeldEnum.Part1:
-                dinoParts[0].gameObject.SetActive(enabled);
+                dinoParts[0].gameObject.SetActive(true);
                 break;
 
             case PlayerInventory.PartHeldEnum.Part2:
-                dinoParts[1].gameObject.SetActive(enabled);
+                dinoParts[1].gameObject.SetActive(true);
                 break;
 
             case PlayerInventory.PartHeldEnum.Part3:
-                dinoParts[2].gameObject.SetActive(enabled);
+                dinoParts[2].gameObject.SetActive(true);
                 break;
 
             case PlayerInventory.PartHeldEnum.Part4:
-                dinoParts[3].gameObject.SetActive(enabled);
+                dinoParts[3].gameObject.SetActive(true);
                 break;
 
             case PlayerInventory.PartHeldEnum.Empty:
-                print("No Bone To Place");
+                Debug.Log("No Bone To Place");
                 break;
 
             default:
-                print("Invalid");
+                Debug.Log("Invalid");
                 break;
         }
 
 
         //show puzzle:
+        StartCoroutine(GenericCoroutines.DoAfterSeconds(ShowPuzzle, 3));
+    }
+
+    public void ShowPuzzle()
+    {
         
         //Create puff of smoke
         gameObject.SetActive(false);
@@ -72,7 +82,10 @@ public class SkeletonManager : MonoBehaviour
         //Start timer   
         //        
         //
+
         
+        
+        //if succeed
         PlayerInventory.Instance.PartCurrentlyHeld = PlayerInventory.PartHeldEnum.Empty;
     }
     private void Update()

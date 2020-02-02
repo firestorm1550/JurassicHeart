@@ -19,12 +19,15 @@ public class PlayerInventory : MonoBehaviour
 
     private void OnEnable()
     {
-       if(Instance != null)
-       {
-           Destroy(Instance);
-       }
-       Instance = this;
-    }
+        if (Instance != this)
+        {
+            if (Instance != null)
+            {
+                Destroy(Instance);
+            }
+            Instance = this;
+        }
+}
 
     public void QueryPart(DinoPart part)
     {
@@ -32,26 +35,26 @@ public class PlayerInventory : MonoBehaviour
         {
             case DinoPart.PartEnum.Part1:
                 PartCurrentlyHeld = PartHeldEnum.Part1;
-                print("You got bone 1 !");
+                Debug.Log("You got bone 1 !");
                 break;
 
             case DinoPart.PartEnum.Part2:
                 PartCurrentlyHeld = PartHeldEnum.Part2;
-                print("You got bone 2 !");
+                Debug.Log("You got bone 2 !");
                 break;
 
             case DinoPart.PartEnum.Part3:
                 PartCurrentlyHeld = PartHeldEnum.Part3;
-                print("You got bone 3 !");
+                Debug.Log("You got bone 3 !");
                 break;
 
             case DinoPart.PartEnum.Part4:
                 PartCurrentlyHeld = PartHeldEnum.Part4;
-                print("You got bone 4 !");
+                Debug.Log("You got bone 4 !");
                 break;
 
             default:
-                print("Cant Pick That Up");
+                Debug.Log("Cant Pick That Up");
                 break;
         }
     }
