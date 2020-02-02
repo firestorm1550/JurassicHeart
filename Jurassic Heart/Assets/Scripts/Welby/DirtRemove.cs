@@ -20,6 +20,10 @@ public class DirtRemove : MonoBehaviour
 	public void RemoveDirt() {
 		GameObject particleObj = Instantiate(particlesPrefab, transform.position, transform.rotation);
 		GameObject.Destroy(particleObj, 2f);
-		GameObject.DestroyImmediate(this);
+		GameObject.Destroy(this.gameObject);
+	}
+
+	private void OnMouseDown() {
+		RemoveDirt();
 	}
 }

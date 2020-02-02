@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using SkeletonPlacement;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,11 +13,10 @@ public class ShellPuzzleController : MonoBehaviour
     private static ShellPuzzleController _instance; 
     
     public ShellLayer shellLayerPrefab;
-    public Camera cam;
-    public PlaceShellPuzzleOnPlane placeOnPlane;
 
     public List<ArtDisplay> story;
 
+    public Action OnSuccess;
     
     public int layers = 12;
     public float minSize = .1f;
@@ -28,10 +28,12 @@ public class ShellPuzzleController : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+        /*
         #if UNITY_EDITOR
-        RespawnPuzzle(cam.transform.position + cam.transform.forward * 4);
+        RespawnPuzzle(cam.transform.position + cam.transform.forward * 4, PlayerInventory.PartHeldEnum.Part1);
         cam.GetComponent<CameraController>()?.Init(puzzle.gameObject);
         #endif
+        */
     }
 
     public void Start()
@@ -41,9 +43,10 @@ public class ShellPuzzleController : MonoBehaviour
         //.transform.position = cam.transform.position + cam.transform.forward * 5 + cam.transform.up*-1;
     }
 
-    public void RespawnPuzzle(Vector3 location, int storyIndex = 0)
+    public void RespawnPuzzle(Vector3 location, PlayerInventory.PartHeldEnum partID)
     {
-        Debug.Log("Respawning puzzle at " + location);
+        Debug.Log("Respawning puzzle at " + location + ", with story id " + ((int)partID -1));
+        
         if(puzzle != null)
             Destroy(puzzle.gameObject);
 
@@ -51,11 +54,11 @@ public class ShellPuzzleController : MonoBehaviour
         
         
         puzzle.transform.position = location;
-        puzzle.artDisplay = story[storyIndex];
+        puzzle.artDisplay = story[(int)partID-1];
         puzzle.artDisplay.transform.parent = puzzle.transform;
         puzzle.artDisplay.transform.localPosition = Vector3.zero;
         puzzle.artDisplay.gameObject.SetActive(true);
-        puzzle.artDisplay.transform.localScale *= .5f * minSize;
+        puzzle.artDisplay.transform.localScale = new Vector3(.5f * minSize,.5f * minSize, .5f * minSize);
     }
 
     public ShellPuzzle GenerateShellPuzzle(int layers, float minSize, float maxSize)

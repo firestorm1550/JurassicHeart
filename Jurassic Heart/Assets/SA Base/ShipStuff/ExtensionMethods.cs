@@ -43,7 +43,7 @@ public static class ExtensionMethods
     public static Bounds MakeBoundingBoxForObjectRenderers(this GameObject rootObject, bool includeInactive = false, FilterClause filter = null)
     {
         Renderer[] renderers = rootObject.GetComponentsInChildren<Renderer>(includeInactive);
-        Debug.Log("renderers.length: " + renderers.Length);
+        //Debug.Log("renderers.length: " + renderers.Length);
         if (renderers.Length == 0)
         {
             return new Bounds(rootObject.transform.position, Vector3.zero);

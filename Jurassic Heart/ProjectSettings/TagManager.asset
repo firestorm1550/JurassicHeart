@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bone
   - Dirt
+  - SkeletonOriginMarker
   layers:
   - Default
   - TransparentFX

@@ -14,12 +14,7 @@ using UnityEngine.XR.ARSubsystems;
 public class PlaceShellPuzzleOnPlane : MonoBehaviour
 {
     public ShellPuzzleController puzzleController;
-
-    /// <summary>
-    /// The object instantiated as a result of a successful raycast intersection with a plane.
-    /// </summary>
-    public GameObject spawnedObject => puzzleController.puzzle.gameObject;
-
+    
     void Awake()
     {
         m_RaycastManager = GetComponent<ARRaycastManager>();
@@ -59,7 +54,7 @@ public class PlaceShellPuzzleOnPlane : MonoBehaviour
             hitPose.position += Vector3.up;
 
             if(!puzzleController.puzzle)
-                puzzleController.RespawnPuzzle(hitPose.position);
+                puzzleController.RespawnPuzzle(hitPose.position, PlayerInventory.PartHeldEnum.Part1);
 //            else
 //            {
 //                spawnedObject.transform.position = hitPose.position;
