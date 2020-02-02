@@ -24,5 +24,6 @@ public class PickUpBone : MonoBehaviour
 		GameObject.Destroy(particleObj, 2f);
 		GUIBone.SetActive(true);
 		GameObject.Destroy(this.gameObject);
+		
 	}
 }

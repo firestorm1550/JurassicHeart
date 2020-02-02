@@ -80,7 +80,8 @@ public class SkeletonManager : MonoBehaviour
             displayToShow.StopRotating();
 
             gameObject.SetActive(true);
-
+            GameController.Instance.welbyOriginPrefab.SetActive(true);
+            GameController.Instance.vibrator.enabled = true;
             //if succeed
             PlayerInventory.Instance.PartCurrentlyHeld = PlayerInventory.PartHeldEnum.Empty;
         };
@@ -92,6 +93,8 @@ public class SkeletonManager : MonoBehaviour
         
         //Create puff of smoke
         gameObject.SetActive(false);
+        GameController.Instance.welbyOriginPrefab.SetActive(false);
+        GameController.Instance.vibrator.enabled = false;
         //remove puff of smoke
 #if UNITY_EDITOR
         Vector3 pos = transform.position;

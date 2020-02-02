@@ -577,7 +577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 427606418a4a9e34799eaef4622265c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bone: {fileID: 0}
+  bones: []
 --- !u!1 &401809370
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,6 +1200,7 @@ MonoBehaviour:
   skeletonScatter: {fileID: 485709328}
   skeletonManager: {fileID: 1105566897}
   currentPartDisplay: {fileID: 401809372}
+  vibrator: {fileID: 282840818}
   welbyOriginPrefab: {fileID: 7258493784384649071, guid: 6960c8985b363724eb9216b478fce458,
     type: 3}
 --- !u!4 &767948417

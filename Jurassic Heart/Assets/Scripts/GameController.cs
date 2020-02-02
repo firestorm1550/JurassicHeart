@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,13 +7,28 @@ using UnityEngine.XR.ARFoundation;
 
 public class GameController : MonoBehaviour
 {
-
+    public static GameController Instance =>_instance;
+    private static GameController _instance;
+    
+    
+    
     public SkeletonScatter skeletonScatter;
     public SkeletonManager skeletonManager;
     public Text currentPartDisplay;
+    public VibrateDistance vibrator;
     public GameObject welbyOriginPrefab;
     private GameObject welbyOriginInstance;
-    
+
+    public void Awake()
+    {
+        if(_instance != null)
+            throw new Exception();
+        else
+        {
+            _instance = this;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +66,7 @@ public class GameController : MonoBehaviour
         welbyOriginInstance = Instantiate(welbyOriginPrefab);
         welbyOriginInstance.transform.position = origin;
 
-        FindObjectOfType<VibrateDistance>().Initialize();
+        vibrator.Initialize();
         
         ARPlaneManager arpm = FindObjectOfType<ARPlaneManager>();
         arpm.SetTrackablesActive(false); 

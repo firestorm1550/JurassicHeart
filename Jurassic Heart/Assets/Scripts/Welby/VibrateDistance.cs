@@ -21,10 +21,11 @@ public class VibrateDistance : MonoBehaviour
     {
 	    if (bones != null)
 	    {
-		    
+		    minDistance = 6f;
 		    foreach (Transform bone in bones)
 		    {
-			    minDistance = Mathf.Min(minDistance, (bone.position - transform.position).magnitude);
+			    if(!bone.GetComponentInParent<HoleWithBone>().empty)
+					minDistance = Mathf.Min(minDistance, (bone.position - transform.position).magnitude);
 		    }
 
 		    if (minDistance < 2f)
