@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     public Text currentPartDisplay;
     public GameObject welbyOriginPrefab;
     
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +48,7 @@ public class GameController : MonoBehaviour
         }, 2));
 
         Instantiate(welbyOriginPrefab).transform.position = origin;
-        
+        FindObjectOfType<VibrateDistance>().Initialize();
         
         ARPlaneManager arpm = FindObjectOfType<ARPlaneManager>();
         arpm.SetTrackablesActive(false); 

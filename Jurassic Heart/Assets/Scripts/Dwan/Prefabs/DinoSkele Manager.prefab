@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5612b199b8f4f43a07c4db779898a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PartType: 2
+  PartType: 1
 --- !u!1 &2509405636575237907
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5612b199b8f4f43a07c4db779898a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PartType: 3
+  PartType: 0
 --- !u!1 &2612886187745001660
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5612b199b8f4f43a07c4db779898a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PartType: 0
+  PartType: 3
 --- !u!1 &6920585342601069342
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,7 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5612b199b8f4f43a07c4db779898a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PartType: 1
+  PartType: 2
 --- !u!1 &8409930653419526774
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,7 +489,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6fc556a18944b1479e0d62e02691fc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dinoParts: []
+  dinoParts:
+  - {fileID: 4154065090158780361}
+  - {fileID: 7615751743978435885}
+  - {fileID: 2282956387283617906}
+  - {fileID: 8264813148092459866}
   artDisplays:
   - {fileID: 375999375213582934}
   - {fileID: 8171799136465396103}

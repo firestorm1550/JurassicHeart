@@ -27,12 +27,10 @@ public class SkeletonManager : MonoBehaviour
 
     private void Awake()
     {
-        foreach (DinoPart part in GetComponentsInChildren<DinoPart>())
+        foreach (DinoPart dinoPart in dinoParts)
         {
-            dinoParts.Add(part);
-            part.gameObject.SetActive(false);
+            dinoPart.gameObject.SetActive(false);
         }
-
         foreach (ArtDisplay artDisplay in artDisplays)
         {
             artDisplay.gameObject.SetActive(false);
