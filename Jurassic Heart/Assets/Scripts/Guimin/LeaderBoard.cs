@@ -45,17 +45,30 @@ public class LeaderBoard : MonoBehaviour
     {
         Button btn = BtnAdd.GetComponent<Button>();
         btn.onClick.AddListener(Click);
-        if(PlayerData.Count == 0)
+        if(PlayerData.Count >= 4)
+        {
+            ReadData();
+        }
+        else
         {
             for (int i = 0; i < 4; i++)
             {
                 Player ouc = new Player();
                 PlayerData.Add(ouc);
-                PlayerPrefs.SetString("Name_" + i, null);
-                PlayerPrefs.SetInt("Score_" + i, 0);
             }
+            ReadData();
         }
-        ReadData();
+        //if(PlayerData.Count == 0)
+        //{
+        //    for (int i = 0; i < 4; i++)
+        //    {
+        //        Player ouc = new Player();
+        //        PlayerData.Add(ouc);
+        //        PlayerPrefs.SetString("Name_" + i, null);
+        //        PlayerPrefs.SetInt("Score_" + i, 0);
+        //    }
+        //}
+        
     }
 
     // Update is called once per frame
@@ -95,7 +108,7 @@ public class LeaderBoard : MonoBehaviour
     }
     void Click()
     {
-        //btnAdd.interactable = false;
+        BtnAdd.interactable = false;
         curplayer.setName(userName.text);
         curplayer.setScore((int)(100 / (countTime + 1) + 100));
         yourName.text = curplayer.getName();
