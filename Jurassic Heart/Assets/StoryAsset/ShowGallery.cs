@@ -7,6 +7,7 @@ public class ShowGallery : MonoBehaviour
     [SerializeField] private GameObject gallery;
     [SerializeField] private GameObject[] arts;
     [SerializeField] private float intervalTime = 1f;
+    [SerializeField] private float rotateSpeed = 30;
     private bool rotating = false;
     // Start is called before the first frame update
     void Start()
@@ -15,14 +16,18 @@ public class ShowGallery : MonoBehaviour
         {
             arts[i].SetActive(false);
         }
-        StartCoroutine(GalleryShowing());
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            StartShowingGallery();
+        }
         if(rotating)
-        transform.Rotate(0, 0, 50 * Time.deltaTime);
+        gallery.transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
     }
     IEnumerator GalleryShowing()
     {
