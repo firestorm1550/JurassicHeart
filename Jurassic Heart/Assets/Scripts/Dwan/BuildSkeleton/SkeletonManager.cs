@@ -10,6 +10,7 @@ public class SkeletonManager : MonoBehaviour
     private List<DinoPart> dinoParts = new List<DinoPart>();
 
     public List<ArtDisplay> artDisplays;
+    public GameObject SolvePuzzleUI;
     
     public static SkeletonManager Instance;
 
@@ -67,7 +68,8 @@ public class SkeletonManager : MonoBehaviour
                 Debug.Log("Invalid");
                 break;
         }
-
+        PlayerInventory.Instance.BoneUI.SetActive(false);
+        SolvePuzzleUI.SetActive(true);
         ShellPuzzleController.Instance.OnSuccess = ()=>
         {
 
@@ -83,10 +85,10 @@ public class SkeletonManager : MonoBehaviour
             GameController.Instance.vibrator.enabled = true;
             GameController.Instance.welbyOriginInstance.holes.First(h=>!h.gameObject.activeSelf).gameObject.SetActive(true);
             PlayerInventory.Instance.PartCurrentlyHeld = PlayerInventory.PartHeldEnum.Empty;
-            PlayerInventory.Instance.BoneUI.SetActive(false);
-            
+            SolvePuzzleUI.SetActive(false);
+
             //todo Place new bone here
-            
+
         };
         StartCoroutine(GenericCoroutines.DoAfterSeconds(ShowPuzzle, 3));
     }
