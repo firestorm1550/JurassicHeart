@@ -7,7 +7,8 @@ public class SkeletonManager : MonoBehaviour
 {
     [SerializeField]
     private List<DinoPart> dinoParts = new List<DinoPart>();
-    
+
+    public List<ArtDisplay> artDisplays;
     
     public static SkeletonManager Instance;
 
@@ -26,11 +27,15 @@ public class SkeletonManager : MonoBehaviour
 
     private void Awake()
     {
-        var i = new int();
         foreach (DinoPart part in GetComponentsInChildren<DinoPart>())
         {
             dinoParts.Add(part);
             part.gameObject.SetActive(false);
+        }
+
+        foreach (ArtDisplay artDisplay in artDisplays)
+        {
+            artDisplay.gameObject.SetActive(false);
         }
     }
 
@@ -66,6 +71,18 @@ public class SkeletonManager : MonoBehaviour
 
 
         //show puzzle:
+        ShellPuzzleController.Instance.OnSuccess = ()=>
+        {
+
+            ArtDisplay artDisplay = ShellPuzzleController.Instance.puzzle.artDisplay;
+            artDisplay.gameObject.SetActive(false);
+            ArtDisplay displayToShow = artDisplays[(int) PlayerInventory.Instance.PartCurrentlyHeld - 1];
+            displayToShow.image = artDisplay.image;
+            displayToShow.gameObject.SetActive(true);
+
+            gameObject.SetActive(true);
+
+        };
         StartCoroutine(GenericCoroutines.DoAfterSeconds(ShowPuzzle, 3));
     }
 
@@ -77,7 +94,7 @@ public class SkeletonManager : MonoBehaviour
         //remove puff of smoke
         
         //    Activate and initialize puzzle (pass in PartHeldEnum)
-        ShellPuzzleController.Instance.RespawnPuzzle(transform.position, PlayerInventory.Instance.PartCurrentlyHeld);
+        ShellPuzzleController.Instance.RespawnPuzzle(transform.position+Vector3.up, PlayerInventory.Instance.PartCurrentlyHeld);
 
         //Start timer   
         //        
@@ -87,6 +104,7 @@ public class SkeletonManager : MonoBehaviour
         
         //if succeed
         PlayerInventory.Instance.PartCurrentlyHeld = PlayerInventory.PartHeldEnum.Empty;
+        
     }
     private void Update()
     {

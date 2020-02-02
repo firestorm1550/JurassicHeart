@@ -31,7 +31,7 @@ public class GameController : MonoBehaviour
         Vector3 origin= Vector3.forward;
             
         #if !UNITY_EDITOR
-            origin = GameObject.FindWithTag("SkeletonOriginMarker");
+            origin = GameObject.FindWithTag("SkeletonOriginMarker").transform.position;
         #endif
 
         skeletonScatter.transform.position = origin;

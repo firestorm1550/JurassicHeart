@@ -16,6 +16,7 @@ public class ShellPuzzleController : MonoBehaviour
 
     public List<ArtDisplay> story;
 
+    public Action OnSuccess;
     
     public int layers = 12;
     public float minSize = .1f;

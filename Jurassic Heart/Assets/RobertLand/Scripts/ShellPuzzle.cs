@@ -52,5 +52,6 @@ public class ShellPuzzle : MonoBehaviour
         }
 
         artDisplay.StopRotating();
+        ShellPuzzleController.Instance.OnSuccess();
     }
 }
