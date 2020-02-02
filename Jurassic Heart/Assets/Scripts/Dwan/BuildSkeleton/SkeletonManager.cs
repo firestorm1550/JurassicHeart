@@ -85,6 +85,7 @@ public class SkeletonManager : MonoBehaviour
             GameController.Instance.vibrator.enabled = true;
             GameController.Instance.welbyOriginInstance.holes.First(h=>!h.gameObject.activeSelf).gameObject.SetActive(true);
             PlayerInventory.Instance.PartCurrentlyHeld = PlayerInventory.PartHeldEnum.Empty;
+			GameObject.Find("Stand").GetComponent<CapsuleCollider>().enabled = false;
             SolvePuzzleUI.SetActive(false);
 
             //todo Place new bone here

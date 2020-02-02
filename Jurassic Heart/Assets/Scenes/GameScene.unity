@@ -4735,6 +4735,11 @@ PrefabInstance:
       propertyPath: BoneUI
       value: 
       objectReference: {fileID: 1968348915}
+    - target: {fileID: 8240490117496997206, guid: 118bf4990e545e649ba46b16f922f34c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8409930653419526768, guid: 118bf4990e545e649ba46b16f922f34c,
         type: 3}
       propertyPath: SolvePuzzleUI

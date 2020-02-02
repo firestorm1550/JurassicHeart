@@ -19,6 +19,7 @@ public class PickUpBone : MonoBehaviour
     }
 
 	private void OnMouseDown() {
+		GameObject.Find("Stand").GetComponent<CapsuleCollider>().enabled = true;
 		transform.GetComponent<SkeletonPlacement.DinoPart>().OnPickUp();
 		GameObject particleObj = Instantiate(particlesPrefab, transform.position, transform.rotation);
 		GameObject.Destroy(particleObj, 2f);
