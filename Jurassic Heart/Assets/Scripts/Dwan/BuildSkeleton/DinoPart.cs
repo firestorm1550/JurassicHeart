@@ -19,6 +19,7 @@ namespace SkeletonPlacement
         {
             PlayerInventory.Instance.QueryPart(this);
             GetComponentInParent<HoleWithBone>().HideBone();
+            FindObjectOfType<Platform>().LookAttractive();
         }
     }
 

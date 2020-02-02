@@ -13,7 +13,7 @@ public class VibrateDistance : MonoBehaviour
 
 	public void Initialize()
     {
-	    bones = GameObject.FindGameObjectsWithTag("Bone").Select(b => b.transform).ToList();
+	    bones = GameController.Instance.welbyOriginInstance.GetComponentsInChildren<PickUpBone>(true).Select(b => b.transform).ToList();
     }
 
     // Update is called once per frame
@@ -21,10 +21,10 @@ public class VibrateDistance : MonoBehaviour
     {
 	    if (bones != null)
 	    {
-		    minDistance = 6f;
+		    minDistance = 6;
 		    foreach (Transform bone in bones)
 		    {
-			    if(!bone.GetComponentInParent<HoleWithBone>().empty)
+			    if(!bone.GetComponentsInParent<HoleWithBone>(true).First().empty)
 					minDistance = Mathf.Min(minDistance, (bone.position - transform.position).magnitude);
 		    }
 
@@ -35,6 +35,7 @@ public class VibrateDistance : MonoBehaviour
 			    timeDelta += Time.deltaTime;
 			    if (timeDelta > timeDelay)
 			    {
+				    Debug.Log("Vibrate");
 				    Handheld.Vibrate();
 				    timeDelta = 0f;
 			    }

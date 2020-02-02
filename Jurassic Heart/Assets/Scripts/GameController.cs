@@ -67,13 +67,12 @@ public class GameController : MonoBehaviour
         welbyOriginInstance = Instantiate(welbyOriginPrefab);
         welbyOriginInstance.transform.position = origin;
         
-        vibrator.Initialize();
         foreach (HoleWithBone holeWithBone in welbyOriginInstance.holes)
         {
             holeWithBone.gameObject.SetActive(false);
         }
         welbyOriginInstance.holes[0].gameObject.SetActive(true);
-        
+        vibrator.Initialize();
         
         
         ARPlaneManager arpm = FindObjectOfType<ARPlaneManager>();
