@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/EntryScene.unity
     guid: beb3a6fc91d23462e9b9aa9f141a6119
   - enabled: 1
-    path: Assets/Scripts/Welby/boneFindingScene.unity
+    path: Assets/Scenes/boneFindingScene.unity
     guid: 5a1933345ab29cc4790535c3b0822bc7
   - enabled: 1
     path: Assets/Scenes/ShellPuzzle.unity

@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public SkeletonScatter skeletonScatter;
     public SkeletonManager skeletonManager;
     public Text currentPartDisplay;
+    public GameObject welbyOriginPrefab;
     
     // Start is called before the first frame update
     void Start()
@@ -44,13 +45,10 @@ public class GameController : MonoBehaviour
             skeletonManager.gameObject.SetActive(true);
             skeletonManager.transform.position = origin;
         }, 2));
+
+        Instantiate(welbyOriginPrefab).transform.position = origin;
         
-        /*foreach (var arPlaneMeshVisualizer in FindObjectsOfType<ARPlaneMeshVisualizer>())
-        {
-            arPlaneMeshVisualizer.gameObject.GetComponent<MeshRenderer>().gameObject.SetActive(false);
-            arPlaneMeshVisualizer.gameObject.GetComponent<MeshCollider>().gameObject.SetActive(false);
-            arPlaneMeshVisualizer.
-        }*/
+        
         ARPlaneManager arpm = FindObjectOfType<ARPlaneManager>();
         arpm.SetTrackablesActive(false); 
         arpm.enabled = false;
