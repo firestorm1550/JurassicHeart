@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR.ARFoundation;
 
 public class GameController : MonoBehaviour
 {
@@ -43,5 +44,19 @@ public class GameController : MonoBehaviour
             skeletonManager.gameObject.SetActive(true);
             skeletonManager.transform.position = origin;
         }, 2));
+        
+        /*foreach (var arPlaneMeshVisualizer in FindObjectsOfType<ARPlaneMeshVisualizer>())
+        {
+            arPlaneMeshVisualizer.gameObject.GetComponent<MeshRenderer>().gameObject.SetActive(false);
+            arPlaneMeshVisualizer.gameObject.GetComponent<MeshCollider>().gameObject.SetActive(false);
+            arPlaneMeshVisualizer.
+        }*/
+        ARPlaneManager arpm = FindObjectOfType<ARPlaneManager>();
+        arpm.SetTrackablesActive(false); 
+        arpm.enabled = false;
+        ARPointCloudManager arpcm = FindObjectOfType<ARPointCloudManager>();
+        arpcm.SetTrackablesActive(false);
+        arpcm.enabled = false;
+
     }
 }
