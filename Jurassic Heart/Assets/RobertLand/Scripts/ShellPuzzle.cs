@@ -28,6 +28,7 @@ public class ShellPuzzle : MonoBehaviour
         if (shellLayersOrdered.IndexOf(layer) == 0)
         {
             Debug.Log("Show Prize!");
+            artDisplay.gameObject.SetActive(true);
             StartCoroutine(GrowImageAndStopRotating(2.5f));
 
         }

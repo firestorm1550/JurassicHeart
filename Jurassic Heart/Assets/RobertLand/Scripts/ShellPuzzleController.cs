@@ -19,8 +19,8 @@ public class ShellPuzzleController : MonoBehaviour
     public Action OnSuccess;
     
     public int layers = 12;
-    public float minSize = .1f;
-    public float maxSize = .75f;
+    public float minSize = .05f;
+    public float maxSize = .5f;
     
     
     public ShellPuzzle puzzle { get; private set; }
@@ -57,7 +57,7 @@ public class ShellPuzzleController : MonoBehaviour
         puzzle.artDisplay = story[(int)partID-1];
         puzzle.artDisplay.transform.parent = puzzle.transform;
         puzzle.artDisplay.transform.localPosition = Vector3.zero;
-        puzzle.artDisplay.gameObject.SetActive(true);
+        puzzle.artDisplay.gameObject.SetActive(false);
         puzzle.artDisplay.transform.localScale = new Vector3(.5f * minSize,.5f * minSize, .5f * minSize);
     }
 
