@@ -7,6 +7,6 @@ public class Platform : MonoBehaviour
 {
     public void OnMouseDown()
     {
-        GameController.Instance.skeletonManager.PlaceBone();
+        GameController.Instance.skeletonManager.PlaceBoneInSkeleton();
     }
 }
