@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class LeaderBoard : MonoBehaviour
 {
+    public static LeaderBoard instance;
     public class Player
     {
         private string name;
@@ -40,9 +41,23 @@ public class LeaderBoard : MonoBehaviour
     public Button BtnAdd;
     public InputField userName;
     public float countTime = 0;
+    public GameObject leaderboard;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        //Check if instance already exists
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
+        leaderboard.SetActive(false);
         Button btn = BtnAdd.GetComponent<Button>();
         btn.onClick.AddListener(Click);
         if(PlayerData.Count >= 4)
@@ -73,7 +88,7 @@ public class LeaderBoard : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         countTime += Time.deltaTime;
     }
     void ReadData()
@@ -127,6 +142,11 @@ public class LeaderBoard : MonoBehaviour
         }
         WriteData();
 
+    }
+
+    public void ActiveLeaderBoard()
+    {
+        leaderboard.SetActive(true);
     }
 
 }
