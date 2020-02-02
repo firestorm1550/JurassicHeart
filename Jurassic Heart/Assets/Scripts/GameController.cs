@@ -9,9 +9,7 @@ public class GameController : MonoBehaviour
 {
     public static GameController Instance => _instance;
     private static GameController _instance; 
-    public static GameController Instance =>_instance;
-    private static GameController _instance;
-    
+
     
     
     public SkeletonScatter skeletonScatter;
@@ -29,16 +27,6 @@ public class GameController : MonoBehaviour
         _instance = this;
     }
     private GameObject welbyOriginInstance;
-
-    public void Awake()
-    {
-        if(_instance != null)
-            throw new Exception();
-        else
-        {
-            _instance = this;
-        }
-    }
 
     // Start is called before the first frame update
     void Start()
