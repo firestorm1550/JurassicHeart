@@ -70,7 +70,7 @@ public class SkeletonManager : MonoBehaviour
         }
         PlayerInventory.Instance.BoneUI.SetActive(false);
         SolvePuzzleUI.SetActive(true);
-        ShellPuzzleController.Instance.OnSuccess = ()=>
+		ShellPuzzleController.Instance.OnSuccess = ()=>
         {
 
             ArtDisplay artDisplay = ShellPuzzleController.Instance.puzzle.artDisplay;
