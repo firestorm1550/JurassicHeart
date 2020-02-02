@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,12 +7,24 @@ using UnityEngine.XR.ARFoundation;
 
 public class GameController : MonoBehaviour
 {
-
+    public static GameController Instance => _instance;
+    private static GameController _instance; 
+    
+    
     public SkeletonScatter skeletonScatter;
     public SkeletonManager skeletonManager;
     public Text currentPartDisplay;
     public GameObject welbyOriginPrefab;
-    
+    public bool GameBegun { get; private set; }
+
+
+    private void Awake()
+    {
+        if(_instance!= null)
+            throw new Exception();
+        _instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +43,9 @@ public class GameController : MonoBehaviour
 
     public void BeginGame()
     {
+        GameBegun = true;
         Vector3 origin= Vector3.forward;
+
             
         #if !UNITY_EDITOR
             origin = GameObject.FindWithTag("SkeletonOriginMarker").transform.position;
@@ -55,6 +70,10 @@ public class GameController : MonoBehaviour
         ARPointCloudManager arpcm = FindObjectOfType<ARPointCloudManager>();
         arpcm.SetTrackablesActive(false);
         arpcm.enabled = false;
+        PlaceOnPlane placeOnPlane = FindObjectOfType<PlaceOnPlane>();
+        placeOnPlane.enabled = false;
+        placeOnPlane.placedPrefab.SetActive(false);
+
 
     }
 }
