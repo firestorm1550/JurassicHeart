@@ -16,16 +16,13 @@ public class ShowGallery : MonoBehaviour
         {
             arts[i].SetActive(false);
         }
-        
+        StartCoroutine(GalleryShowing());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            StartShowingGallery();
-        }
+       
         if(rotating)
         gallery.transform.Rotate(0, rotateSpeed * Time.deltaTime, 0);
     }
