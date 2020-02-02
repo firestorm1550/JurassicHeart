@@ -7,9 +7,9 @@ using UnityEngine.XR.ARFoundation;
 
 public class GameController : MonoBehaviour
 {
-    public static GameController Instance =>_instance;
-    private static GameController _instance;
-    
+    public static GameController Instance => _instance;
+    private static GameController _instance; 
+
     
     
     public SkeletonScatter skeletonScatter;
@@ -18,16 +18,16 @@ public class GameController : MonoBehaviour
     public VibrateDistance vibrator;
     public BoneLocationControl welbyOriginPrefab;
     public BoneLocationControl welbyOriginInstance;
+    public bool GameBegun { get; private set; }
 
-    public void Awake()
+
+    private void Awake()
     {
-        if(_instance != null)
+        if (_instance != null)
             throw new Exception();
-        else
-        {
-            _instance = this;
-        }
+        _instance = this;
     }
+    private GameObject welbyOriginInstance;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +47,9 @@ public class GameController : MonoBehaviour
 
     public void BeginGame()
     {
+        GameBegun = true;
         Vector3 origin= Vector3.forward;
+
             
         #if !UNITY_EDITOR
             origin = GameObject.FindWithTag("SkeletonOriginMarker").transform.position;
@@ -84,6 +86,7 @@ public class GameController : MonoBehaviour
         PlaceOnPlane placeOnPlane = FindObjectOfType<PlaceOnPlane>();
         placeOnPlane.enabled = false;
         placeOnPlane.placedPrefab.SetActive(false);
+
 
     }
 }

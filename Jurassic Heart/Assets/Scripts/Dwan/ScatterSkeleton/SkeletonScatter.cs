@@ -34,7 +34,7 @@ public class SkeletonScatter : MonoBehaviour
             scatterParts[b].GetComponent<Rigidbody>().useGravity = true;
             scatterParts[b].GetComponent<Rigidbody>().isKinematic = false;
             scatterParts[b].GetComponent<ScatterFade>().DelayFade();
-            scatterParts[b].GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-2000, 2000), Random.Range(-2000, 2000), Random.Range(-2000, 2000)));
+            scatterParts[b].GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-500, 500), Random.Range(-500, 500), Random.Range(-500, 500)));
         }
     }
 

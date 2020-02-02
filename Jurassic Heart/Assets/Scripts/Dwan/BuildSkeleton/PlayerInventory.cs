@@ -15,6 +15,7 @@ public class PlayerInventory : MonoBehaviour
     }
     public PartHeldEnum PartCurrentlyHeld;
     public static PlayerInventory Instance;
+    public GameObject BoneUI;
     // Start is called before the first frame update
 
     private void OnEnable()
@@ -35,21 +36,25 @@ public class PlayerInventory : MonoBehaviour
         {
             case DinoPart.PartEnum.Part1:
                 PartCurrentlyHeld = PartHeldEnum.Part1;
+                BoneUI.SetActive(true);
                 Debug.Log("You got bone 1 !");
                 break;
 
             case DinoPart.PartEnum.Part2:
                 PartCurrentlyHeld = PartHeldEnum.Part2;
+                BoneUI.SetActive(true);
                 Debug.Log("You got bone 2 !");
                 break;
 
             case DinoPart.PartEnum.Part3:
                 PartCurrentlyHeld = PartHeldEnum.Part3;
+                BoneUI.SetActive(true);
                 Debug.Log("You got bone 3 !");
                 break;
 
             case DinoPart.PartEnum.Part4:
                 PartCurrentlyHeld = PartHeldEnum.Part4;
+                BoneUI.SetActive(true);
                 Debug.Log("You got bone 4 !");
                 break;
 
@@ -63,5 +68,6 @@ public class PlayerInventory : MonoBehaviour
     {
         SkeletonManager.Instance.DisplayPart();
     }
+
 }
 
